@@ -245,7 +245,7 @@ pnpm run db:seed      # Seed database with sample data
 
 ### Environment Variables
 
-Create a `.env.local` file in the root directory:
+Create a `.env` file in the root directory:
 
 ```env
 # Database (when implemented)
@@ -260,20 +260,6 @@ QUICKBOOKS_CLIENT_ID="your_quickbooks_id"
 QUICKBOOKS_CLIENT_SECRET="your_quickbooks_secret"
 ```
 
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. **Connect Repository**: Link your GitHub repository to Vercel
-2. **Configure Environment**: Add your environment variables
-3. **Deploy**: Vercel will automatically deploy on every push
-
-### Other Platforms
-
-- **Netlify**: Use the Next.js build command
-- **Railway**: Deploy with automatic database provisioning
-- **AWS/GCP/Azure**: Use containerized deployment
-
 ## 🔮 Future Enhancements
 
 ### Planned Features
@@ -285,13 +271,6 @@ QUICKBOOKS_CLIENT_SECRET="your_quickbooks_secret"
 - **Advanced Analytics**: AI-powered insights and recommendations
 - **Automation**: n8n integration for workflow automation
 - **Investor Portal**: Secure sharing with potential investors
-
-### Integration Roadmap
-- **Financial Tools**: QuickBooks, Xero, Stripe
-- **Project Management**: Asana, Trello, Linear
-- **Communication**: Slack, Microsoft Teams
-- **Legal**: DocuSign, LegalZoom
-- **Marketing**: HubSpot, Mailchimp
 
 ## 🤝 Contributing
 
@@ -359,6 +338,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Built for entrepreneurs, by entrepreneurs.** 🚀
-
-*Start treating your startup like your best client today.*
-
