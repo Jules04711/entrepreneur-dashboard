@@ -85,7 +85,7 @@ The Entrepreneur Dashboard solves a critical problem faced by startup founders: 
 ### Prerequisites
 
 - Node.js 18+ 
-- npm (package manager)
+- pnpm (package manager)
 - Modern web browser
 
 ### Installation
@@ -98,12 +98,12 @@ The Entrepreneur Dashboard solves a critical problem faced by startup founders: 
 
 2. **Install dependencies**
    ```bash
-   npm install
+   pnpm install
    ```
 
 3. **Start the development server**
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
 4. **Open your browser**
@@ -233,14 +233,14 @@ entrepreneur-dashboard/
 
 ```bash
 # Development
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
+pnpm run dev          # Start development server
+pnpm run build        # Build for production
+pnpm run start        # Start production server
+pnpm run lint         # Run ESLint
 
 # Database (when implemented)
-npm run db:migrate   # Run database migrations
-npm run db:seed      # Seed database with sample data
+pnpm run db:migrate   # Run database migrations
+pnpm run db:seed      # Seed database with sample data
 ```
 
 ### Environment Variables
@@ -324,13 +324,13 @@ We welcome contributions from the entrepreneur community! Here's how you can hel
 - **Documentation**: Check this README and inline comments
 - **Issues**: Open a GitHub issue for bugs or questions
 - **Discussions**: Use GitHub Discussions for general questions
-- **Email**: Contact us at support@entrepreneurdashboard.com
+- **Email**: Contact us at jules@jmartin.consulting
 
 ### Community
-- **Discord**: Join our entrepreneur community
-- **Twitter**: Follow us for updates and tips
-- **LinkedIn**: Connect with other users
-- **Newsletter**: Subscribe for monthly tips and updates
+- **YouTube**: Watch tutorial videos and subscribe at https://www.youtube.com/@JulesMartin7
+- **Twitter**: Follow us for updates and tips: https://x.com/jules04711
+- **LinkedIn**: Connect at https://www.linkedin.com/in/jmart04/
+- **Website**: Visit https://jmartin.consulting
 
 ## 📄 License
 
@@ -361,3 +361,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Built for entrepreneurs, by entrepreneurs.** 🚀
 
 *Start treating your startup like your best client today.*
+
