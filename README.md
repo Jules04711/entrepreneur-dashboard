@@ -68,15 +68,10 @@ The Entrepreneur Dashboard solves a critical problem faced by startup founders: 
 
 ### ⚖️ **Legal Documents Hub**
 - Centralized document storage
-- Categorized by type (Incorporation, Contracts, IP, etc.)
-- Status tracking (Active, Pending, Under Review)
 - Quick access and download capabilities
-- Document organization and search
 
 ### 📈 **Accounting Snapshot**
 - Income and expenses overview
-- QuickBooks integration ready
-- Spreadsheet import capabilities
 - Financial health indicators
 - Revenue tracking and projections
 
@@ -128,7 +123,7 @@ Your command center showing:
 ### 📊 **Cap Table Management**
 - **Add Stakeholders**: Include founders, investors, employees, and advisors
 - **Track Equity**: Monitor share distribution and percentages
-- **Visualize Ownership**: See pie charts and progress bars
+- **Visualize Ownership**: See charts and progress bars
 - **Export Data**: Generate reports for investors or legal purposes
 
 ### 💸 **Burn Rate Tracking**
@@ -338,3 +333,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Built for entrepreneurs, by entrepreneurs.** 🚀
+
