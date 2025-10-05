@@ -1,14 +1,15 @@
-# 🚀 Entrepreneur Dashboard
+# Entrepreneur Dashboard
 
 > **Treat your startup like your best client**
 
 A comprehensive, professional dashboard designed specifically for entrepreneurs to centralize and manage all aspects of their startup journey. Stop juggling scattered tools and start executing with focus.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Key Features](#key-features)
 - [Getting Started](#getting-started)
+- [Authentication](#authentication)
 - [Dashboard Sections](#dashboard-sections)
 - [Usage Guide](#usage-guide)
 - [Technical Stack](#technical-stack)
@@ -16,78 +17,79 @@ A comprehensive, professional dashboard designed specifically for entrepreneurs 
 - [Contributing](#contributing)
 - [License](#license)
 
-## 🎯 Overview
+## Overview
 
 The Entrepreneur Dashboard solves a critical problem faced by startup founders: **scattered information across multiple platforms**. Instead of managing your cap table in one tool, burn rate in another, and business plans in yet another, this dashboard centralizes everything into one professional, easy-to-use interface.
 
 ### The Problem We Solve
 
-- ❌ Documents scattered across multiple platforms
-- ❌ No clear view of financial runway
-- ❌ Difficulty tracking progress and milestones
-- ❌ Time wasted switching between tools
-- ❌ Lack of professional presentation for investors
+- Documents scattered across multiple platforms
+- No clear view of financial runway
+- Difficulty tracking progress and milestones
+- Time wasted switching between tools
+- Lack of professional presentation for investors
 
 ### Our Solution
 
-- ✅ All business data in one professional dashboard
-- ✅ Real-time burn rate and runway calculations
-- ✅ Integrated milestone tracking and planning
-- ✅ Seamless workflow automation
-- ✅ Professional presentation ready for investors
+- All business data in one professional dashboard
+- Real-time burn rate and runway calculations
+- Integrated milestone tracking and planning
+- Seamless workflow automation
+- Professional presentation ready for investors
 
-## 🌟 Key Features
+## Key Features
 
-### 📊 **Cap Table & Equity Tracker**
+### **Cap Table & Equity Tracker**
 - Visualize ownership and contributions with interactive charts
 - Track Common Stock, Preferred Stock, and Stock Options
 - Real-time percentage calculations
 - Export capabilities for investor presentations
 - Stakeholder management with contact information
 
-### 💰 **Burn Rate Monitor**
+### **Burn Rate Monitor**
 - Real-time monthly burn rate calculations
 - Runway projections based on current cash
 - Categorized expense tracking (Salaries, Software, Marketing, etc.)
 - Scenario planning capabilities
 - Export financial reports
 
-### 🗺️ **90-Day Roadmap Tracker**
+### **90-Day Roadmap Tracker**
 - Milestone board with sprint progress
 - Priority-based task management
 - Team assignment and accountability
 - Progress tracking with visual indicators
 - Calendar integration for deadline management
 
-### 📄 **Business Plan Library**
+### **Business Plan Library**
 - Create and manage business documents
 - Version control and collaboration
 - Multiple document types (Business Plans, Strategies, Playbooks)
 - Professional export options
 - Template library for quick starts
 
-### ⚖️ **Legal Documents Hub**
+### **Legal Documents Hub**
 - Centralized document storage
 - Quick access and download capabilities
 
-### 📈 **Accounting Snapshot**
+### **Accounting Snapshot**
 - Income and expenses overview
 - Financial health indicators
 - Revenue tracking and projections
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+ 
 - pnpm (package manager)
+- PostgreSQL database
 - Modern web browser
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/entrepreneur-dashboard.git
+   git clone https://github.com/Jules04711/entrepreneur-dashboard.git
    cd entrepreneur-dashboard
    ```
 
@@ -96,65 +98,100 @@ The Entrepreneur Dashboard solves a critical problem faced by startup founders: 
    pnpm install
    ```
 
-3. **Start the development server**
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` and add your database URL and other configuration.
+
+4. **Set up the database**
+   ```bash
+   pnpm prisma db push
+   pnpm prisma generate
+   ```
+
+5. **Start the development server**
    ```bash
    pnpm run dev
    ```
 
-4. **Open your browser**
+6. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
 ### First Time Setup
 
 1. **Sign Up**: Create your account using the signup form
-2. **Company Setup**: Enter your startup's basic information
-3. **Initial Data**: Add your first stakeholders, expenses, and milestones
-4. **Customize**: Set up your dashboard preferences and notifications
+2. **Sign In**: Access your personalized dashboard
+3. **Company Setup**: Enter your startup's basic information
+4. **Initial Data**: Add your first stakeholders, expenses, and milestones
+5. **Customize**: Set up your dashboard preferences and notifications
 
-## 📱 Dashboard Sections
+## Authentication
 
-### 🏠 **Dashboard Overview**
+The dashboard now includes a complete authentication system:
+
+### **User Registration & Login**
+- Secure user registration with email validation
+- Password hashing with bcryptjs
+- Session management with secure tokens
+- Protected routes and dashboard access
+
+### **Security Features**
+- Password strength requirements (minimum 6 characters)
+- Secure session tokens with expiration
+- Protected API endpoints
+- User authentication context throughout the app
+
+### **User Management**
+- User profile management
+- Secure sign out functionality
+- Session persistence across browser refreshes
+- Authentication state management with React Context
+
+## Dashboard Sections
+
+### **Dashboard Overview**
 Your command center showing:
 - Key metrics at a glance (Burn Rate, Runway, Team Size, Milestones)
 - Quick action buttons for common tasks
 - Recent activity feed
 - Progress overview for quarterly goals
 
-### 📊 **Cap Table Management**
+### **Cap Table Management**
 - **Add Stakeholders**: Include founders, investors, employees, and advisors
 - **Track Equity**: Monitor share distribution and percentages
 - **Visualize Ownership**: See charts and progress bars
 - **Export Data**: Generate reports for investors or legal purposes
 
-### 💸 **Burn Rate Tracking**
+### **Burn Rate Tracking**
 - **Log Expenses**: Categorize and track all business expenses
 - **Monitor Runway**: See how long your cash will last
 - **Scenario Planning**: Test different spending scenarios
 - **Export Reports**: Generate financial summaries
 
-### 🎯 **Roadmap Management**
+### **Roadmap Management**
 - **Create Milestones**: Break down your goals into trackable items
 - **Set Priorities**: Mark tasks as High, Medium, or Low priority
 - **Track Progress**: Update completion percentages
 - **Assign Tasks**: Delegate responsibilities to team members
 
-### 📚 **Document Management**
+### **Document Management**
 - **Create Documents**: Business plans, strategies, and playbooks
 - **Version Control**: Track changes and maintain document history
 - **Collaborate**: Share documents with team members
 - **Export**: Generate professional PDFs and presentations
 
-### ⚖️ **Legal Document Hub**
+### **Legal Document Hub**
 - **Upload Documents**: Store Articles of Incorporation, contracts, etc.
 - **Organize by Category**: Group documents by type and status
 - **Track Status**: Monitor document review and approval processes
 - **Quick Access**: Find documents quickly with search and filters
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### For First-Time Users
 
-1. **Start with the Overview**: Get familiar with the dashboard layout
+1. **Start with Authentication**: Sign up and create your account
 2. **Set Up Your Cap Table**: Add all current stakeholders and their equity
 3. **Configure Burn Rate**: Enter your monthly expenses and cash on hand
 4. **Create Your First Milestones**: Add 3-5 key goals for the next 90 days
@@ -184,7 +221,7 @@ Your command center showing:
 4. **Document Audit**: Ensure all legal documents are up to date
 5. **Performance Review**: Analyze progress against goals and adjust strategy
 
-## 🛠️ Technical Stack
+## Technical Stack
 
 ### Frontend
 - **Next.js 14** - React framework with App Router
@@ -193,6 +230,12 @@ Your command center showing:
 - **Radix UI** - Accessible component library
 - **Lucide React** - Beautiful icons
 - **Recharts** - Data visualization
+
+### Backend & Database
+- **PostgreSQL** - Relational database
+- **Prisma** - Database ORM and migrations
+- **Next.js API Routes** - Server-side API endpoints
+- **bcryptjs** - Password hashing
 
 ### UI Components
 - **shadcn/ui** - Modern, accessible components
@@ -205,13 +248,15 @@ Your command center showing:
 - **Prettier** - Code formatting
 - **TypeScript** - Static type checking
 
-## 🔧 Development
+## Development
 
 ### Project Structure
 
 ```
 entrepreneur-dashboard/
 ├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   │   └── auth/          # Authentication endpoints
 │   ├── auth/              # Authentication pages
 │   ├── dashboard/         # Dashboard pages
 │   └── globals.css        # Global styles
@@ -221,7 +266,12 @@ entrepreneur-dashboard/
 │   └── ui/                # Reusable UI components
 ├── hooks/                 # Custom React hooks
 ├── lib/                   # Utility functions
-└── public/                # Static assets
+│   ├── generated/         # Generated Prisma client (ignored)
+│   ├── auth-context.tsx   # Authentication context
+│   ├── auth.ts           # Authentication utilities
+│   └── db.ts             # Database connection
+├── prisma/               # Database schema and migrations
+└── public/               # Static assets
 ```
 
 ### Available Scripts
@@ -233,9 +283,11 @@ pnpm run build        # Build for production
 pnpm run start        # Start production server
 pnpm run lint         # Run ESLint
 
-# Database (when implemented)
-pnpm run db:migrate   # Run database migrations
-pnpm run db:seed      # Seed database with sample data
+# Database
+pnpm prisma generate  # Generate Prisma client
+pnpm prisma db push   # Push schema changes to database
+pnpm prisma studio    # Open Prisma Studio (database GUI)
+pnpm prisma migrate   # Run database migrations
 ```
 
 ### Environment Variables
@@ -243,31 +295,27 @@ pnpm run db:seed      # Seed database with sample data
 Create a `.env` file in the root directory:
 
 ```env
-# Database (when implemented)
-DATABASE_URL="your_database_url"
+# Database
+DATABASE_URL="postgresql://username:password@localhost:5432/dashboard_db?schema=public"
 
-# Authentication (when implemented)
+# Authentication
 NEXTAUTH_SECRET="your_secret_key"
 NEXTAUTH_URL="http://localhost:3000"
-
-# External APIs (when implemented)
-QUICKBOOKS_CLIENT_ID="your_quickbooks_id"
-QUICKBOOKS_CLIENT_SECRET="your_quickbooks_secret"
 ```
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 ### Planned Features
-- **User Authentication**: Secure login and user management
-- **Database Integration**: Persistent data storage
 - **Real-time Collaboration**: Multi-user editing and updates
 - **API Integrations**: QuickBooks, Stripe, and other business tools
 - **Mobile App**: Native iOS and Android applications
 - **Advanced Analytics**: AI-powered insights and recommendations
 - **Automation**: n8n integration for workflow automation
 - **Investor Portal**: Secure sharing with potential investors
+- **Email Notifications**: Automated reminders and updates
+- **Advanced Security**: Two-factor authentication and audit logs
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions from the entrepreneur community! Here's how you can help:
 
@@ -292,7 +340,7 @@ We welcome contributions from the entrepreneur community! Here's how you can hel
 - Write tests for new features
 - Follow the existing code style
 
-## 📞 Support
+## Support
 
 ### Getting Help
 - **Documentation**: Check this README and inline comments
@@ -306,31 +354,30 @@ We welcome contributions from the entrepreneur community! Here's how you can hel
 - **LinkedIn**: Connect at https://www.linkedin.com/in/jmart04/
 - **Website**: Visit https://jmartin.consulting
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **shadcn/ui** for the beautiful component library
 - **Vercel** for the amazing Next.js framework
 - **Radix UI** for accessible components
 - **The Entrepreneur Community** for inspiration and feedback
 
-## 📊 Project Status
+## Project Status
 
-- ✅ **Core Dashboard**: Complete
-- ✅ **Cap Table Management**: Complete
-- ✅ **Burn Rate Tracking**: Complete
-- ✅ **Roadmap Management**: Complete
-- ✅ **Document Management**: Complete
-- ✅ **Legal Document Hub**: Complete
-- 🚧 **User Authentication**: In Progress
-- 🚧 **Database Integration**: Planned
-- 🚧 **API Integrations**: Planned
-- 🚧 **Mobile App**: Planned
+- **Core Dashboard**: Complete
+- **Cap Table Management**: Complete
+- **Burn Rate Tracking**: Complete
+- **Roadmap Management**: Complete
+- **Document Management**: Complete
+- **Legal Document Hub**: Complete
+- **User Authentication**: Complete
+- **Database Integration**: Complete
+- **API Integrations**: Planned
+- **Mobile App**: Planned
 
 ---
 
-**Built for entrepreneurs, by entrepreneurs.** 🚀
-
+**Built for entrepreneurs, by entrepreneurs.**
