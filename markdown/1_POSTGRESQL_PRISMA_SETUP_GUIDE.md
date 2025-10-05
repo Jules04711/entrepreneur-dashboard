@@ -1,20 +1,5 @@
 # PostgreSQL & Prisma Setup Guide
 
-## Table of Contents
-
-1. [Quick Setup Checklist](#quick-setup-checklist)
-2. [Step 1: Install PostgreSQL](#step-1-install-postgresql)
-3. [Step 2: Create Database](#step-2-create-database)
-4. [Step 3: Create .env File](#step-3-create-env-file)
-5. [Step 4: Initialize Prisma](#step-4-initialize-prisma)
-6. [Step 5: Configure Prisma Schema](#step-5-configure-prisma-schema)
-7. [Step 6: Create Database Tables](#step-6-create-database-tables)
-8. [Step 7: Open Prisma Studio](#step-7-open-prisma-studio)
-9. [Test Your Application](#test-your-application)
-10. [Video Script Summary](#video-script-summary)
-11. [Quick Troubleshooting](#quick-troubleshooting)
-12. [Resources](#resources)
-
 ## Quick Setup Checklist
 
 **Follow these steps in order:**
@@ -227,28 +212,6 @@ npx prisma studio
 
 Opens at `http://localhost:5555` - you can see your database tables!
 
-## Test Your Application
-
-```bash
-npm run dev
-```
-
-Visit `http://localhost:3000` - your app should work perfectly!
-
----
-
-## Video Script Summary
-
-1. **Install PostgreSQL** → Download & install, remember password
-2. **Create database** → `psql -U postgres` → `CREATE DATABASE dashboard_db;`
-3. **Create .env** → Add `DATABASE_URL` with your password
-4. **Initialize Prisma** → `npx prisma init`
-5. **Update schema** → Add User model to `prisma/schema.prisma`
-6. **Create tables** → `npx prisma db push` **CRITICAL**
-7. **Open Studio** → `npx prisma studio`
-
-**That's it! Your database is ready for your Next.js app!**
-
 ---
 
 ## Quick Troubleshooting
@@ -279,4 +242,3 @@ Visit `http://localhost:3000` - your app should work perfectly!
 - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
 - [Next.js Documentation](https://nextjs.org/docs)
 
-**Happy coding!**
