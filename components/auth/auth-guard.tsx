@@ -1,33 +1,24 @@
 "use client"
 
 import type React from "react"
-
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Loader2 } from "lucide-react"
+import { useAuth } from "@/lib/auth-context"
 
 interface AuthGuardProps {
   children: React.ReactNode
 }
 
 export function AuthGuard({ children }: AuthGuardProps) {
-  const [isLoading, setIsLoading] = useState(true)
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const { user, isLoading } = useAuth()
   const router = useRouter()
 
   useEffect(() => {
-    const checkAuth = () => {
-      const authStatus = localStorage.getItem("isAuthenticated")
-      if (authStatus === "true") {
-        setIsAuthenticated(true)
-      } else {
-        router.push("/auth/signin")
-      }
-      setIsLoading(false)
+    if (!isLoading && !user) {
+      router.push("/auth/signin")
     }
-
-    checkAuth()
-  }, [router])
+  }, [user, isLoading, router])
 
   if (isLoading) {
     return (
@@ -37,7 +28,7 @@ export function AuthGuard({ children }: AuthGuardProps) {
     )
   }
 
-  if (!isAuthenticated) {
+  if (!user) {
     return null
   }
 

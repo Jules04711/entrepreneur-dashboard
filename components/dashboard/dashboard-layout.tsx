@@ -17,6 +17,7 @@ import { BarChart3, PieChart, Calculator, FileText, Target, Users, Settings, Log
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { useAuth } from "@/lib/auth-context"
 
 interface DashboardLayoutProps {
   children: React.ReactNode
@@ -37,6 +38,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   const [userName, setUserName] = useState("")
   const pathname = usePathname()
   const router = useRouter()
+  const { signOut } = useAuth()
 
   useEffect(() => {
     const email = localStorage.getItem("userEmail") || ""
@@ -150,7 +152,11 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               </h1>
             </div>
 
-            <DropdownMenu>
+            <div className="flex items-center space-x-4">
+              <Button variant="outline" onClick={signOut}>
+                Sign Out
+              </Button>
+              <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                   <Avatar className="h-10 w-10">
@@ -178,7 +184,8 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                   <span>Sign out</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
-            </DropdownMenu>
+              </DropdownMenu>
+            </div>
           </div>
         </header>
 

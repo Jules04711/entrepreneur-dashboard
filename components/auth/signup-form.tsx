@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2 } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useAuth } from "@/lib/auth-context"
 
 export function SignUpForm() {
   const [name, setName] = useState("")
@@ -18,6 +18,7 @@ export function SignUpForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
   const router = useRouter()
+  const { signUp } = useAuth()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -36,20 +37,15 @@ export function SignUpForm() {
       return
     }
 
-    try {
-      // Simulate account creation - replace with real auth logic
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      // Store auth state in localStorage for demo
-      localStorage.setItem("isAuthenticated", "true")
-      localStorage.setItem("userEmail", email)
-      localStorage.setItem("userName", name)
-      router.push("/dashboard")
-    } catch (err) {
-      setError("An error occurred. Please try again.")
-    } finally {
-      setIsLoading(false)
+    const result = await signUp(name, email, password)
+    
+    if (result.success) {
+      router.push("/auth/signin")
+    } else {
+      setError(result.error || "An error occurred. Please try again.")
     }
+    
+    setIsLoading(false)
   }
 
   return (

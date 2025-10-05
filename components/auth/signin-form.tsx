@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2 } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useAuth } from "@/lib/auth-context"
 
 export function SignInForm() {
   const [email, setEmail] = useState("")
@@ -16,29 +16,22 @@ export function SignInForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
   const router = useRouter()
+  const { signIn } = useAuth()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     setError("")
 
-    try {
-      // Simulate authentication - replace with real auth logic
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      if (email === "demo@example.com" && password === "password") {
-        // Store auth state in localStorage for demo
-        localStorage.setItem("isAuthenticated", "true")
-        localStorage.setItem("userEmail", email)
-        router.push("/dashboard")
-      } else {
-        setError("Invalid email or password")
-      }
-    } catch (err) {
-      setError("An error occurred. Please try again.")
-    } finally {
-      setIsLoading(false)
+    const result = await signIn(email, password)
+    
+    if (result.success) {
+      router.push("/dashboard")
+    } else {
+      setError(result.error || "An error occurred. Please try again.")
     }
+    
+    setIsLoading(false)
   }
 
   return (
@@ -85,10 +78,6 @@ export function SignInForm() {
           "Sign In"
         )}
       </Button>
-
-      <div className="text-center">
-        <p className="text-xs text-muted-foreground">Demo: Use email "demo@example.com" and password "password"</p>
-      </div>
     </form>
   )
 }
